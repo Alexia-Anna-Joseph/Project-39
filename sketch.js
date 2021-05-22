@@ -53,27 +53,28 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(550, 200);
+  createCanvas(1360, 650);
+ 
   
   trex = createSprite(120,180,20,50);
   trex.addAnimation("running", trex_running);
   trex.addAnimation("collided", trex_collided);
   trex.scale = 0.5;
   
-  ground = createSprite(200,180,200,20);
+  ground = createSprite(1180,380,2000,20);
   ground.addImage("ground",groundImage);
   ground.x = ground.width /2;
   ground.velocityX = -2;
   
-  invisibleGround = createSprite(200,190,400,10);
+  invisibleGround = createSprite(200,390,400,10);
   invisibleGround.visible = false;
   
-  gameOver = createSprite(280,80,20,20);
+  gameOver = createSprite(250,250,20,20);
   gameOver.addImage(gameOverImage);
   gameOver.scale = 0.6;
   gameOver.visible = false;
   
-  restart = createSprite(260,130,20,20);
+  restart = createSprite(260,280,20,20);
   restart.addImage(restartImage);
   restart.scale = 0.5;
   restart.visible = false;
@@ -206,7 +207,7 @@ function SpawnClouds(){
   
 function spawnObstacles() {
   if(frameCount % 60 === 0) {
-    obstacle = createSprite(600,165,10,40);
+    obstacle = createSprite(600,370,10,40);
     obstacle.velocityX = -(6 + Math.round(score/100));
     
     //generate random obstacles
