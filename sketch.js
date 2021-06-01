@@ -17,10 +17,14 @@ var score = 0;
 var sec = 0;
 
 
-
 localStorage["HighestScore"]=0;
 
 function preload(){
+
+  
+  die = loadSound("Assets/die.mp3");
+  
+  jump = loadSound("Assets/jump.mp3");
   trex_running = loadAnimation("Sprites/trex1.png","Sprites/trex2.png","Sprites/trex3.png");
   
   trex_collided = loadImage("Sprites/trex_collided.png");
@@ -41,13 +45,9 @@ function preload(){
 
   obstacleImages6 = loadImage("Sprites/obstacle6.png");
 
-  gameOverImage = loadImage("Sprites/gameOver.png");
+  gameOverImage = loadImage("Sprites/game over 2.png");
   
   restartImage = loadImage("Sprites/restart.png");
-  
-  die = loadSound("Assets/die.mp3");
-  
-  jump = loadSound("Assets/jump.mp3");
   
   check = loadSound("Assets/checkPoint.mp3");
 }
@@ -74,8 +74,8 @@ function setup() {
   gameOver.scale = 0.6;
   gameOver.visible = false;
   
-  restart = createSprite(260,280,20,20);
-  restart.addImage(restartImage);
+  restart = createSprite(0,200000,0,0);
+  
   restart.scale = 0.5;
   restart.visible = false;
   
@@ -169,22 +169,7 @@ function draw() {
   
 }
 
-function reset() {
-   
-  gameState = PLAY;
-  gameOver.visible = false;
-  restart.visible = false;
-  
-  GroupObstacles.setLifetimeEach(0);    
-  GroupClouds.setLifetimeEach(0);  
-  
-  trex.changeAnimation("running", trex_running);
-  
-  // console.log(localStorage["HighestScore"]);
-  
-  score = 0;
-  sec = 0; 
-}
+
 
 function SpawnClouds(){
   if (frameCount % 60 === 0) {
@@ -244,3 +229,12 @@ function spawnObstacles() {
 }
 
   
+
+
+
+
+
+
+
+
+
